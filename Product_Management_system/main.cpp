@@ -23,17 +23,16 @@ int main() {
             system("clear");
             cout << "==========================[ Create Product ]==========================\n";
 
-              int id;
+              int id = 0;
              string name;
              double price;
              int quantity;
-
-             cout<<"Enter Product ID : ";cin>>id; cin.ignore();
+             cin.ignore();
              cout<<"Enter Product Name : ";getline(cin,name);
              cout<<"Enter Price : ";cin>>price;
              cout<<"Enter Quantity : ";cin>>quantity;
 
-            Product pro(id, name,price , quantity);
+            Product pro(id,name,price,quantity);
 
             if (ProductDAO::insertProduct(conn, pro)) {
                 cout << "Insert is Successful!\n";
@@ -53,8 +52,23 @@ int main() {
          case 3:{
            system("clear");
             cout << "==========================[ Update Products ]==========================\n";
-
-          break;}
+             int id_search= 0;
+             cout<<"Enter ID for Update :";cin>>id_search;
+               if(ProductDAO::productExists(conn , id_search)){
+                  int qty;
+                  string name;
+                  double price;
+                  cin.ignore();
+                   cout<<"Enter New Product Name : ";getline(cin,name);
+                   cout<<"Enter New Product Price : ";cin>>price;
+                   cout<<"Enter New Product Quantity : ";cin>>qty;
+                   Product upp(id_search , name , price , qty);
+                   ProductDAO::updateProduct(conn,upp,id_search);
+                 }else{
+                   cerr<<"Product Not Found ! "<<endl;
+                 }
+            break;
+          }
         default:
             cout << "Invalid choice!\n";
         }

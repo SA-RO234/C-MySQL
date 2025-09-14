@@ -31,3 +31,28 @@ bool ProductDAO::insertProduct(MYSQL *conn , Product p){
        }
        mysql_free_result(res);
  }
+ // get Product ID
+  bool ProductDAO::productExists(MYSQL *conn , int id){
+     string query = "SELECT pro_id FROM Product WHERE pro_id ="+to_string(id)+";";
+     if(mysql_query(conn , query.c_str()) == 0){
+         MYSQL_RES *res = mysql_store_result(conn);
+     bool exists = (mysql_num_rows(res) >0);
+      mysql_free_result(res);
+        return exists;
+       }
+       return false;
+     }
+
+
+ // Update product
+void ProductDAO::updateProduct(MYSQL *conn , Product p , int id){
+        string query = "UPDATE Product SET pro_name='"+p.getName()+"', pro_price=" + to_string(p.getPrice()) +
+                       ", pro_quantity=" + to_string(p.getQuantity()) +
+                       " WHERE pro_id=" + to_string(id);
+
+      if(mysql_query(conn , query.c_str())){
+         cerr<<"Update Failed ! "<<endl;
+       }else{
+         cout<<"Update is Successfully !"<<endl;
+       }
+   }
