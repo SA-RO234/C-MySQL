@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1757860045 source:/home/r-sunrise/Desktop/C++ & MySQL/Product_Management_system/main.cpp
+1757860911 source:/home/r-sunrise/Desktop/C++ & MySQL/Product_Management_system/main.cpp
 	"Connection.h"
 	"ProductClass.h"
 	"ProductDAO.h"
@@ -53,7 +53,7 @@
 1757805834 source:/home/r-sunrise/Desktop/C++ & MySQL/Product_Management_system/ProductClass.cpp
 	"ProductClass.h"
 
-1757858729 source:/home/r-sunrise/Desktop/C++ & MySQL/Product_Management_system/ProductDAO.cpp
+1757891101 source:/home/r-sunrise/Desktop/C++ & MySQL/Product_Management_system/ProductDAO.cpp
 	"ProductDAO.h"
 	<iostream>
 

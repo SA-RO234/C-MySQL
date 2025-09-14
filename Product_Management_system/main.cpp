@@ -69,6 +69,17 @@ int main() {
                  }
             break;
           }
+          case 4: {
+           system("clear");
+            cout << "==========================[ Update Products ]==========================\n";
+             int id;
+             cout<<"Enter ID for Delete : ";cin>>id;
+             if(ProductDAO::deleteProduct(conn,id)){
+                cout<<"Delete is Successfully ! "<<endl;
+              }else{
+                 cout<<"Delete is not Success ! "<<endl;
+              }
+           }break;
         default:
             cout << "Invalid choice!\n";
         }

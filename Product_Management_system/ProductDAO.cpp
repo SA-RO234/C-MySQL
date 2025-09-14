@@ -56,3 +56,17 @@ void ProductDAO::updateProduct(MYSQL *conn , Product p , int id){
          cout<<"Update is Successfully !"<<endl;
        }
    }
+
+
+bool ProductDAO::deleteProduct(MYSQL *conn , int id) {
+    string query = "DELETE FROM Product WHERE pro_id=" + to_string(id) + ";";
+
+    if (mysql_query(conn, query.c_str())) {
+        cerr << "Delete failed: " << mysql_error(conn) << endl;
+        return false;
+    }
+    return true;
+}
+
+
+
